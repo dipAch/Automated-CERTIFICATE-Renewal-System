@@ -49,8 +49,7 @@ The only files that need to be altered per run are:
     ---PortalConfig
 ```
 
-The above two files contain information that vary from certificate to certificate. I have marked the section where those variables
-are grouped together for ease of modifying.
+The above two files contain information that vary from certificate to certificate. I have marked the section (as *** VARIABLE SECTION ***) where those variables are grouped together for the ease of modifying.
 
 __Note:__ Only make changes to those grouped configuration options. The rest remains the same for all the instances of the process.
 
