@@ -27,11 +27,35 @@ certain configuration settings and running the program. The utility takes care o
 
 - [x] Generating the Private Key
 - [x] Generating the CSR (Certificate Signing Request)
-   - The utility can also generate a CSR from an existing private key (If it is present).
-   - Say, the CSR was created manually or by the utility (and then it crashed), it just takes over from there!!!
+  - The utility can also generate a CSR from an existing private key (If it is present).
+  - Say, the CSR was created manually or by the utility (and then it crashed), it just takes over from there!!!
 - [x] Submitting the CSR to the CA on their portal, and also auto-providing the other relevant details required for proper submission.
 
 The benefits of having an automated utility is that one doesn't need to bother about the details of cetificate generation or the
 commands required to generate a CSR and Private Key. This also reduces the chances of human error, while performing the process.
 Also, one doesn't need to manually go the CA Portal to submit the CSR, which itself is another set of steps that require caution
 and full attention.
+
+## Winds of Change
+The entire utility depends on the input configuration options (which also can be changed). You do not need to change anything in
+the software, but direct the software based on those configuration options.
+
+The configuration files can be located under the utility's root. The container folder is named __`config`__.
+
+The only files that need to be altered per run are:
+```
+|---config
+    ---CSRConfig
+    ---PortalConfig
+```
+
+The above two files contain information that vary from certificate to certificate. I have marked the section where those variables
+are grouped together for ease of modifying.
+
+__Note:__ Only make changes to those grouped configuration options. The rest remains the same for all the instances of the process.
+
+## About the Environment (Requisites)
+- The utility uses Python 3 (==3.4.3).
+- Additional Modules include,
+     - [x] Requests: HTTP for Humans
+     - [x] BeautifulSoup: Webscraping made easy
